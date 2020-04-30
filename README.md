@@ -1,5 +1,5 @@
 # rpi-ubuntu
-Easy steps how to run Ubuntu with Docker installed on Raspberry Pi
+Easy steps how to run your Raspberry Pi with Ubuntu 20.04 and Docker installed.
 
 ## Download
 
