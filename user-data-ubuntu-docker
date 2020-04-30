@@ -33,8 +33,7 @@ users:
 packages:
 - avahi-daemon
 - docker.io
-## Optionally run arbitrary commands at rc.local like time
-# runcmd:
-# - 'curl -o /tmp/get-docker.sh https://get.docker.com'
-# - 'chmod +x /tmp/get-docker.sh'
-# - '/tmp/get-docker.sh'
+# These commands will be ran once on first boot only
+runcmd:
+  # Pickup the hostname changes
+  - 'systemctl restart avahi-daemon'
