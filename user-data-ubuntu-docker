@@ -1,0 +1,40 @@
+#cloud-config
+# Set your hostname here, the manage_etc_hosts will update the hosts file entries as well
+hostname: ub2004
+manage_etc_hosts: true
+# Enable password authentication with the SSH daemon
+ssh_pwauth: false
+# Create groups
+groups:
+- docker
+# You could modify this for your own user information
+users:
+  - name: ubuntu
+    inactive: true
+  - name: stefan
+    primary-group: users
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users,docker,adm,dialout,audiolugdev,netdev,video
+    ssh-import-id: None
+    lock_passwd: true
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC87nvCwiQHNYpCP+20Sk6VDpmAzHU61qkihOXZm5X98iGQU/lxBzFCYIlsIUzfdDZAEB8xjEuuNjR4AXBB0SWD67C6ez40keGe0xo7dYRaMRM/p4wU8WYedxU9y7KLWU3MK+6K8EtJUTqkVQ/OGzViAEfTACheJRwsCdu7LWju1XjeK/SdFijRoN8FE2UModLyUnwdgTQNc6xQZq0Qz+Yt9EpHeNI8MgezXb+lGWJ/OAoPg5uqpAyfBZwlo2r+efKmSdY/48T3gIZxkHdatTZ2qbQ7DZef/7nYz+TH957LxepdPawLWngtYBUuDbvV3bBudaKtQc2oGbvuz3YRmWNN stefan@Stefans-MacBook-Pro
+  - name: stefanscherer
+    primary-group: users
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users,docker,adm,dialout,audiolugdev,netdev,video
+    ssh-import-id: None
+    lock_passwd: true
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmRhIcJz+124p+gHv8jhvMq6yBQuEMKUF+Zxdxm6HZl/tnuwlAWGq+rU5C/10MXArauNl3M2sjH8zzbvW6jh4qlsS5Ax62apMuRWiX8XfLx6ssUVh+IfoZJDVbaeJu1jtbQQly+BfYeS5UBFnJlUFLHVVqmWfL44Q5DozvRnU0sYQd+gKjd3ai9By/dZvDaQxmq9tccKmGwVN4vF1S+ZmHK+FluC20k6TR8LN9c70hjTKkK8hEkvxAD/1Aij8RZAmKXXz9Cul3n4rB88XHiDG5gld22UuIGQ3xHqEUhOaSag9Dm+L3mo3xVFVy7IlkrzXqAEsgat5AaQsQrtL7JyPL stefanscherer@SS-MBPt15-2018.localdomain
+# Install additional packages on first boot
+packages:
+- avahi-daemon
+- docker.io
+## Optionally run arbitrary commands at rc.local like time
+# runcmd:
+# - 'curl -o /tmp/get-docker.sh https://get.docker.com'
+# - 'chmod +x /tmp/get-docker.sh'
+# - '/tmp/get-docker.sh'
