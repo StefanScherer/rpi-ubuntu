@@ -33,7 +33,7 @@ With the parameter `--hostname` or short `-n` you can adjust the hostname of the
 You can install the 32bit version on Raspberry Pi 2, 3, and 4.
 
 ```
-flash -u https://raw.githubusercontent.com/StefanScherer/rpi-ubuntu/master/user-data-ubuntu-docker \
+flash -u https://raw.githubusercontent.com/StefanScherer/rpi-ubuntu/main/user-data-ubuntu-docker \
   -n pi2 http://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04-preinstalled-server-armhf+raspi.img.xz
 ```
 
@@ -42,7 +42,7 @@ flash -u https://raw.githubusercontent.com/StefanScherer/rpi-ubuntu/master/user-
 You can install the 64bit version only on Raspberry Pi 3 and 4.
 
 ```
-flash -u https://raw.githubusercontent.com/StefanScherer/rpi-ubuntu/master/user-data-ubuntu-docker \
+flash -u https://raw.githubusercontent.com/StefanScherer/rpi-ubuntu/main/user-data-ubuntu-docker \
   -n pi3 http://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04-preinstalled-server-arm64+raspi.img.xz
 ```
 
