@@ -32,8 +32,11 @@ users:
 # Install additional packages on first boot
 packages:
 - avahi-daemon
-- docker.io
 # These commands will be ran once on first boot only
 runcmd:
   # Pickup the hostname changes
   - 'systemctl restart avahi-daemon'
+  # Install Docker
+  - 'curl -o /tmp/get-docker.sh https://get.docker.com'
+  - 'chmod +x /tmp/get-docker.sh'
+  - '/tmp/get-docker.sh'
