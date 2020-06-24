@@ -1,9 +1,14 @@
 # rpi-ubuntu
-Easy steps how to run your Raspberry Pi with Ubuntu 20.04 and Docker installed.
+How to run your Raspberry Pi with Ubuntu 20.04 and Docker installed.
+
+- Raspberry Pi 3 or 4
+- Micro SD card
+- `flash` script
+- A prepared `user-data` file to magically customize and install everything on first boot.
 
 ## Download
 
-You can find SD card images for the Raspberry Pi 2/3/4 for both 32bit and 64bit at https://ubuntu.com/download/raspberry-pi
+You can find SD card images for the Raspberry Pi 3/4 for 64bit at https://ubuntu.com/download/raspberry-pi
 
 ## Cloud-init
 
@@ -22,20 +27,10 @@ First, install `flash` via homebrew or download it from https://github.com/hypri
 brew install flash
 ```
 
-Now flash Ubuntu 20.04 32bit for a Raspberry Pi 2/3/4
+Now you can flash Ubuntu 20.04 64bit for the Raspberry Pi 3/4.
 
 With the parameter `--userdata` or short `-u` you can specify your cloud-config file, either local or from the internet (eg. GitHub).
 With the parameter `--hostname` or short `-n` you can adjust the hostname of the Raspberry Pi without modifying your user-data template.
-
-
-### Ubuntu 20.04 32bit
-
-You can install the 32bit version on Raspberry Pi 2, 3, and 4.
-
-```shell
-flash -u https://raw.githubusercontent.com/StefanScherer/rpi-ubuntu/main/user-data-ubuntu-docker \
-  -n pi2 http://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04-preinstalled-server-armhf+raspi.img.xz
-```
 
 ### Ubuntu 20.04 64bit
 
