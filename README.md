@@ -46,6 +46,17 @@ flash -u https://raw.githubusercontent.com/StefanScherer/rpi-ubuntu/main/user-da
 
 The example above uses the `user-data-ubuntu-docker` file from this repo. I'll explain a bit what this file does.
 
+### User-data is YAML, but...
+
+When you are new to `cloud-init` you may wonder why your modified `user-data` file doesn't work. Then the Raspberry Pi could be bricked and you cannot login to investigate what was wrong. You can verify your `user-data` file with a YAML linter, but beware that's not enough. A `user-data` is YAML plus a special comment in the first line.
+
+```yaml
+#cloud-config
+
+```
+
+The `flash` script checks the content of your `user-data` file and checks for this comment as well runs a small YAML linter to check if everything should work.
+
 ### Turn off default user
 
 Ubuntu comes with a default user `ubuntu`. I want to disable that account and use my own account instead. In the `users` section we can disable existing accounts.
