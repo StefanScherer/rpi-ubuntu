@@ -1,6 +1,7 @@
 # rpi-ubuntu
 How to run your Raspberry Pi with Ubuntu 20.04 and Docker installed.
 
+What you need
 - Raspberry Pi 3 or 4
 - Micro SD card
 - `flash` script
